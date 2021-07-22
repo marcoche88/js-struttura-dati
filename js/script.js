@@ -8,6 +8,7 @@ dettagli grafici (va bene una lista coi tag UL e LI)
 BONUS: provare a creare una funzione che stampi la carta in pagina.
 */
 
+// dichiarazione oggetto card
 const card = {
     id: 1,
     name: "Colosso Sangue-di-Fuoco",
@@ -25,7 +26,7 @@ const card = {
     expansion: {
         id: 9,
         name: "Ninth Edition",
-        rarity: "gold", // gold=rara silver=non-comune black=comune
+        rarity: "Gold", // gold=rara silver=non-comune black=comune
         cardNumber: 177,
         totalCard: 350,
     },
@@ -53,3 +54,93 @@ const card = {
 };
 
 console.log(card);
+
+// stampare in pagina la carta
+const cardDisplay = document.getElementById("cards");
+
+// verifica se è presente il sottotipo della carta
+const cardSubTyoe = card.subType ? `- ${card.subType}` : ``;
+
+// verificare quante abilità sono presenti nella carta
+let cardAbilities = `-`;
+if (card.abilities) {
+    cardAbilities = `<ul>`;
+    for (let i = 0; i < card.abilities.length; i++) {
+        cardAbilities += `<li> ${card.abilities[i].launchCost.join(" - ")}: ${card.abilities[i].description} </li>`;
+    }
+    cardAbilities += `</ul>`;
+}
+
+// verifica se è presente il flavortext della carta
+const cardFlavorText = card.flavorText ? `<li><strong>testo di colore:</strong> ${card.flavorText.quote} - ${card.flavorText.authorName}</li>` : ``;
+
+// verifica colore bordo carta
+let cardBorder;
+if (card.cardBorderColor === "#000000") {
+    cardBorder = "Bianco";
+} else {
+    cardBorder = "Nero";
+}
+
+// verifica colore sfondo
+let cardBgColor;
+switch (card.background.color) {
+    case "red":
+        cardBgColor = "Rosso";
+        break;
+    case "white":
+        cardBgColor = "Bianco";
+        break;
+    case "blue":
+        cardBgColor = "Blu";
+        break;
+    case "green":
+        cardBgColor = "Verde";
+        break;
+    case "black":
+        cardBgColor = "Nero";
+        break;
+    default:
+        cardBgColor = "-";
+}
+
+const cardTemplate = `
+<ul class="card">
+    <li><strong>id carta:</strong> ${card.id}</li>
+    <li><strong>nome carta:</strong> ${card.name}</li>
+    <li><strong>costo di lancio:</strong> ${card.launchCost.join(" - ")}</li>
+    <li><strong>costo di mana convertito (cmc):</strong> ${card.convertedManaCost}</li>
+    <li>
+        <strong>illustrazione:</strong>
+        <ul>
+            <li>Immagine: ${card.illustration.source}</li>
+            <li>Autore: ${card.illustration.author.name} (id: ${card.illustration.author.id})</li>
+        </ul> 
+    </li>
+    <li><strong>Tipo di carta:</strong> ${card.cardType} ${cardSubTyoe}</li>
+    <li>
+        <strong>espansione:</strong>
+        <ul>
+            <li>Nome: ${card.expansion.name} (id: ${card.expansion.id})</li>
+            <li>Rarità: ${card.expansion.rarity}</li>
+            <li>Numero: ${card.expansion.cardNumber}/${card.expansion.totalCard}</li>
+        </ul>
+    </li>
+    <li>
+        <strong>abilità:</strong>
+        ${cardAbilities}
+    </li>
+    ${cardFlavorText}
+    <li><strong>forza e costituzione:</strong> ${card.strength}/${card.constitution}</li>
+    <li><strong>colore bordo carta:</strong> ${cardBorder}</li>
+    <li>
+        <strong>sfondo carta:</strong>
+        <ul>
+            <li>Colore di sfondo: ${cardBgColor}</li>
+            <li>Immagine di sfondo: ${card.background.source}</li>
+        </ul>
+    </li>
+</ul>
+`;
+
+cardDisplay.innerHTML = cardTemplate;

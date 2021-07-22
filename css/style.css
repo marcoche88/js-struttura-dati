@@ -1,0 +1,7 @@
+body {
+    font-family: sans-serif;
+}
+
+li strong {
+    text-transform: uppercase;
+}
