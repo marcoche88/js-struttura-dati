@@ -55,11 +55,11 @@ const card = {
 
 console.log(card);
 
-// stampare in pagina la carta
+// variabile html
 const cardDisplay = document.getElementById("cards");
 
 // verifica se è presente il sottotipo della carta
-const cardSubTyoe = card.subType ? `- ${card.subType}` : ``;
+const cardSubType = card.subType ? `- ${card.subType}` : ``;
 
 // verificare quante abilità sono presenti nella carta
 let cardAbilities = `-`;
@@ -84,7 +84,7 @@ if (card.cardBorderColor === "#000000") {
 
 // verifica colore sfondo
 let cardBgColor;
-switch (card.background.color) {
+switch (card.background.color.toLowerCase()) {
     case "red":
         cardBgColor = "Rosso";
         break;
@@ -104,6 +104,7 @@ switch (card.background.color) {
         cardBgColor = "-";
 }
 
+// stampare in pagina la descrizione della carta
 const cardTemplate = `
 <ul class="card">
     <li><strong>id carta:</strong> ${card.id}</li>
@@ -117,7 +118,7 @@ const cardTemplate = `
             <li>Autore: ${card.illustration.author.name} (id: ${card.illustration.author.id})</li>
         </ul> 
     </li>
-    <li><strong>Tipo di carta:</strong> ${card.cardType} ${cardSubTyoe}</li>
+    <li><strong>Tipo di carta:</strong> ${card.cardType} ${cardSubType}</li>
     <li>
         <strong>espansione:</strong>
         <ul>
