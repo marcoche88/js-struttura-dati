@@ -5,3 +5,14 @@ body {
 li strong {
     text-transform: uppercase;
 }
+
+h1 {
+    text-align: center;
+}
+
+#cards {
+    border: 2px dashed red;
+    padding: 5px;
+    width: 550px;
+    margin: 0 auto;
+}

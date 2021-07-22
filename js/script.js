@@ -58,9 +58,13 @@ console.log(card);
 // variabile html
 const cardDisplay = document.getElementById("cards");
 
+// stampa in pagina la descrizione della carta
 const cardTemplate = getCard(card);
 
 cardDisplay.innerHTML = cardTemplate;
+
+
+
 
 // FUNZIONI
 
