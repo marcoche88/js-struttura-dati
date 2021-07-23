@@ -27,3 +27,7 @@ h1 {
 .hidden {
     display: none;
 }
+
+button {
+    cursor: pointer;
+}

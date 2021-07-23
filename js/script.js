@@ -20,7 +20,9 @@ PERTANTO IL MINIMO RICHIESTO E':
  Filtrare prima le proprietà con valori semplici (stringhe o numeri)
 Filtrare le proprietà il cui valore è un array di stringhe
 BONUS:
-Far sì che se filtro una proprietà con valore stringa, riesca a mostrare la carta anche se non scrivo il suo testo interamente (es: cerco il nome digitando "creat" e riesco a trovare nei risultati le carte che hanno nel nome "creatura")
+Far sì che se filtro una proprietà con valore stringa, riesca a mostrare la carta anche se non scrivo 
+il suo testo interamente (es: cerco il nome digitando "creat" e riesco a trovare nei risultati le carte 
+che hanno nel nome "creatura")
 Filtrare anche altre proprietà i cui valori sono più complessi, se ne avete (oggetti, array di oggetti)
 */
 
@@ -265,6 +267,41 @@ selectFilter.addEventListener("change", () => {
     } else {
         inputFilter.classList.remove("hidden");
     }
+});
+
+// al click del bottone filtra per gli input inseriti dall'utente
+buttonFilter.addEventListener("click", () => {
+    const selectValue = selectFilter.value;
+    const inputValue = inputFilter.value;
+
+    // mostrare tutte le carte quando è selezionata la option all
+    if (selectValue === "all") {
+        printDeck(fullDeck, cardDisplay);
+        return;
+    }
+
+    // array vuoto per inserire le carte filtrate
+    const filterDeck = [];
+
+    // ciclare su tutto il mazzo per verificare i filtri
+    for (let i = 0; i < fullDeck.length; i++) {
+        const currentCard = fullDeck[i];
+
+        // controllare con lo switch i vari tipi di filtri
+        switch (selectValue) {
+            // filtra numeri
+            case "id":
+            case "convertedManaCost":
+            case "strength":
+            case "constitution":
+                if (currentCard[selectValue] === parseInt(inputValue)) {
+                    filterDeck.push(currentCard);
+                    printDeck(filterDeck, cardDisplay);
+                }
+                break;
+        }
+    }
+
 });
 
 
