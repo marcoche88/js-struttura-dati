@@ -289,7 +289,7 @@ buttonFilter.addEventListener("click", () => {
 
         // controllare con lo switch i vari tipi di filtri
         switch (selectValue) {
-            // filtra numeri
+            //numeri
             case "id":
             case "convertedManaCost":
             case "strength":
@@ -309,9 +309,35 @@ buttonFilter.addEventListener("click", () => {
                     printDeck(filterDeck, cardDisplay);
                 }
                 break;
+            // oggetto illustration
+            case "illustration":
+                if (currentCard[selectValue]["author"]["name"].includes(inputValue)) {
+                    filterDeck.push(currentCard);
+                    printDeck(filterDeck, cardDisplay);
+                }
+                break;
+            // oggetto expansion
+            case "expansion-id":
+                if (currentCard.expansion.id === parseInt(inputValue)) {
+                    filterDeck.push(currentCard);
+                    printDeck(filterDeck, cardDisplay);
+                }
+                break;
+            case "expansion-rarity":
+                if (currentCard.expansion.rarity.includes(inputValue)) {
+                    filterDeck.push(currentCard);
+                    printDeck(filterDeck, cardDisplay);
+                }
+                break;
+            // oggetto flavorText
+            case "flavorText":
+                if (currentCard[selectValue]["authorName"].includes(inputValue)) {
+                    filterDeck.push(currentCard);
+                    printDeck(filterDeck, cardDisplay);
+                }
+                break;
         }
     }
-
 });
 
 
