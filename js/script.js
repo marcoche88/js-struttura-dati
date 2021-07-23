@@ -299,11 +299,12 @@ buttonFilter.addEventListener("click", () => {
                     printDeck(filterDeck, cardDisplay);
                 }
                 break;
-            //stringhe
+            //stringhe e array di stringhe
             case "name":
             case "cardType":
             case "subType":
-                if (currentCard[selectValue].toLowerCase().includes(inputValue)) {
+            case "launchCost":
+                if (currentCard[selectValue].includes(inputValue)) {
                     filterDeck.push(currentCard);
                     printDeck(filterDeck, cardDisplay);
                 }
