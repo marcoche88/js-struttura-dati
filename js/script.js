@@ -299,6 +299,15 @@ buttonFilter.addEventListener("click", () => {
                     printDeck(filterDeck, cardDisplay);
                 }
                 break;
+            //stringhe
+            case "name":
+            case "cardType":
+            case "subType":
+                if (currentCard[selectValue].toLowerCase().includes(inputValue)) {
+                    filterDeck.push(currentCard);
+                    printDeck(filterDeck, cardDisplay);
+                }
+                break;
         }
     }
 
