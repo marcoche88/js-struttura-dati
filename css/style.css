@@ -11,8 +11,19 @@ h1 {
 }
 
 #cards {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.card {
     border: 2px dashed red;
-    padding: 5px;
-    width: 550px;
-    margin: 0 auto;
+    width: 400px;
+    height: 500px;
+    margin: 10px;
+    border-radius: 10px;
+}
+
+.hidden {
+    display: none;
 }

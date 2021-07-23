@@ -10,6 +10,20 @@
 </head>
 
 <body>
+    <select id="filter">
+        <option selected value="all">Tutte le carte</option>
+        <option value="id">Id</option>
+        <option value="name">Nome carta</option>
+        <option value="launchCost">Costo di lancio</option>
+        <option value="convertedManaCost">Costo di mana convertito</option>
+        <option value="cardType">Tipo di carta</option>
+        <option value="subType">Sottotipo di carta</option>
+        <option value="strength">Forza</option>
+        <option value="constitution">Costituzione</option>
+    </select>
+    <input class="hidden" type="text" id="filter-text" placeholder="Filtra...">
+    <button type="button" id="filter-button">Filtra</button>
+    <hr>
     <h1>Descrizione Carte Magic</h1>
     <div id="cards"></div>
 
