@@ -198,42 +198,46 @@ const getCard = (obj) => {
     // costruzione template da stamapre
     const template = `
     <div class="card">
-        <ul>
-            <li><strong>id carta:</strong> ${obj.id}</li>
-            <li><strong>nome carta:</strong> ${obj.name}</li>
-            <li><strong>costo di lancio:</strong> ${obj.launchCost.join(" - ")}</li>
-            <li><strong>costo di mana convertito (cmc):</strong> ${obj.convertedManaCost}</li>
-            <li>
-                <strong>illustrazione:</strong>
-                <ul>
-                    <li>Immagine: ${obj.illustration.source}</li>
-                    <li>Autore: ${obj.illustration.author.name} (id: ${obj.illustration.author.id})</li>
-                </ul> 
-            </li>
-            <li><strong>Tipo di carta:</strong> ${obj.cardType} ${cardSubType}</li>
-            <li>
-                <strong>espansione:</strong>
-                <ul>
-                    <li>Nome: ${obj.expansion.name} (id: ${obj.expansion.id})</li>
-                    <li>Rarità: ${obj.expansion.rarity}</li>
-                    <li>Numero: ${obj.expansion.cardNumber}/${obj.expansion.totalCard}</li>
-                </ul>
-            </li>
-            <li>
-                <strong>abilità:</strong>
-                ${cardAbilities}
-            </li>
-            ${cardFlavorText}
-            <li><strong>forza e costituzione:</strong> ${obj.strength}/${obj.constitution}</li>
-            <li><strong>colore bordo carta:</strong> ${cardBorder}</li>
-            <li>
-                <strong>sfondo carta:</strong>
-                <ul>
-                    <li>Colore di sfondo: ${cardBgColor}</li>
-                    <li>Immagine di sfondo: ${obj.background.source}</li>
-                </ul>
-            </li>
-        </ul>
+        <div class="card-img">
+            <img src="${obj.illustration.source}">
+        </div>
+        <div class="card-text">
+            <ul>
+                <li><strong>id carta:</strong> ${obj.id}</li>
+                <li><strong>nome carta:</strong> ${obj.name}</li>
+                <li><strong>costo di lancio:</strong> ${obj.launchCost.join(" - ")}</li>
+                <li><strong>costo di mana convertito (cmc):</strong> ${obj.convertedManaCost}</li>
+                <li>
+                    <strong>illustrazione:</strong>
+                    <ul>
+                        <li>Autore: ${obj.illustration.author.name} (id: ${obj.illustration.author.id})</li>
+                    </ul> 
+                </li>
+                <li><strong>Tipo di carta:</strong> ${obj.cardType} ${cardSubType}</li>
+                <li>
+                    <strong>espansione:</strong>
+                    <ul>
+                        <li>Nome: ${obj.expansion.name} (id: ${obj.expansion.id})</li>
+                        <li>Rarità: ${obj.expansion.rarity}</li>
+                        <li>Numero: ${obj.expansion.cardNumber}/${obj.expansion.totalCard}</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>abilità:</strong>
+                    ${cardAbilities}
+                </li>
+                ${cardFlavorText}
+                <li><strong>forza e costituzione:</strong> ${obj.strength}/${obj.constitution}</li>
+                <li><strong>colore bordo carta:</strong> ${cardBorder}</li>
+                <li>
+                    <strong>sfondo carta:</strong>
+                    <ul>
+                        <li>Colore di sfondo: ${cardBgColor}</li>
+                        <li>Immagine di sfondo: ${obj.background.source}</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
     </div>
     `;
 

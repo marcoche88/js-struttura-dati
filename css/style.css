@@ -2,6 +2,15 @@ body {
     font-family: sans-serif;
 }
 
+img {
+    height: 200px;
+}
+
+.card-img {
+    text-align: center;
+    padding: 10px;
+}
+
 li strong {
     text-transform: uppercase;
 }
@@ -19,9 +28,10 @@ h1 {
 .card {
     border: 2px dashed red;
     width: 400px;
-    height: 500px;
+    height: 550px;
     margin: 10px;
     border-radius: 10px;
+    font-size: 12px;
 }
 
 .hidden {
